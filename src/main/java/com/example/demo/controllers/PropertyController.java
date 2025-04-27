@@ -15,11 +15,8 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
 import com.example.demo.models.Property;
 import com.example.demo.services.PropertyService;
-
-import lombok.ToString;
 
 @RestController
 @RequestMapping("/api/properties")
@@ -46,13 +43,13 @@ public class PropertyController {
 
 	@GetMapping("/{id}")
 	public ResponseEntity<?> getById(@PathVariable("id") Long idProperty) {
-		Optional property = propertyService.getById(idProperty);
+		Optional<Property> property = propertyService.getById(idProperty);
 		return ResponseEntity.status(200).body(property);
 	}
 
 	@DeleteMapping("/{id}")
 	public ResponseEntity<?> delete(@PathVariable("id") Long idProperty){
-		Optional property = propertyService.getById(idProperty);
+		Optional<Property> property = propertyService.getById(idProperty);
 		propertyService.delete(idProperty);
 		return ResponseEntity.status(200).body(property);
 	}

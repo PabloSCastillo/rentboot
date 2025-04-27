@@ -11,6 +11,6 @@ public interface PropertyService {
 	Property update(Property property);
 	List<Property> findAll();
 	void delete(Long id);
-	Optional getById(Long id);
+	Optional<Property> getById(Long id);
 	
 }

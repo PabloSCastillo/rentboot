@@ -27,13 +27,17 @@ import lombok.ToString;
 @Table(name = "properties")
 @ToString(exclude = "id")
 public class Property {
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	Long id;
-
+	
+	@Column(name = "description")
+	String description;
+	
 	@Column(name = "type")
 	String type;
-	String description;
+
 	@Embedded
 	Address address;
 	float price;
@@ -41,10 +45,12 @@ public class Property {
 	String bathrooms;
 	String latitude;
 	String longitude;
-	boolean isActive;
+	boolean available;
+	
 	@CreatedDate
 	@Column(updatable = false)
 	LocalDateTime createdAt;
+	
 	@LastModifiedDate
 	LocalDateTime updatedAt;
 
