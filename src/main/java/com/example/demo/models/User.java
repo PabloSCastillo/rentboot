@@ -12,6 +12,6 @@ public class User {
     String licenseNumber;
     String agency;
     List<Property> assignedProperties;
-    Rol rol;
+    Role rol;
 
 }

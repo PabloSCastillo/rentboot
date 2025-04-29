@@ -19,7 +19,7 @@ import com.example.demo.models.Property;
 import com.example.demo.services.PropertyService;
 
 @RestController
-@RequestMapping("/api/properties")
+@RequestMapping("/api/v1/properties")
 
 public class PropertyController {
 
