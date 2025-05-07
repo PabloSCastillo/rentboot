@@ -3,7 +3,7 @@ package com.example.demo.services;
 import java.util.List;
 import java.util.Optional;
 
-import com.example.demo.models.Property;
+import com.example.demo.entities.Property;
 
 public interface PropertyService {
 	
