@@ -15,7 +15,8 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import com.example.demo.models.Property;
+
+import com.example.demo.entities.Property;
 import com.example.demo.services.PropertyService;
 
 @RestController

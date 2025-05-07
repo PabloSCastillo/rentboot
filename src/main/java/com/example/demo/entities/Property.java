@@ -1,4 +1,4 @@
-package com.example.demo.models;
+package com.example.demo.entities;
 
 import java.time.LocalDateTime;
 
@@ -17,7 +17,6 @@ import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.ToString;
 
 @Entity
 @EntityListeners(AuditingEntityListener.class)
@@ -25,7 +24,7 @@ import lombok.ToString;
 @AllArgsConstructor
 @NoArgsConstructor
 @Table(name = "properties")
-@ToString(exclude = "id")
+
 public class Property {
 	
 	@Id
@@ -49,9 +48,9 @@ public class Property {
 	
 	@CreatedDate
 	@Column(updatable = false)
-	LocalDateTime createdAt;
+	private LocalDateTime createdAt;
 	
 	@LastModifiedDate
-	LocalDateTime updatedAt;
+	private LocalDateTime updatedAt;
 
 }

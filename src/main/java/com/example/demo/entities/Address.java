@@ -1,4 +1,4 @@
-package com.example.demo.models;
+package com.example.demo.entities;
 
 import jakarta.persistence.Embeddable;
 import lombok.AllArgsConstructor;
