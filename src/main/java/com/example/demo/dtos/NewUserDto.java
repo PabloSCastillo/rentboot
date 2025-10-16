@@ -1,5 +1,10 @@
 package com.example.demo.dtos;
 
+import org.springframework.boot.autoconfigure.kafka.KafkaProperties.Admin;
+
+import com.example.demo.entities.Role;
+
+import jakarta.persistence.Column;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -8,6 +13,10 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class NewUserDto {
-    private String userName;
+    @Column(name = "username")
+    private String userame;
     private String password;
+    private Role rol = new Role() ;
+
+    
 }

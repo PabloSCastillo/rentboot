@@ -1,5 +1,6 @@
 package com.example.demo.entities;
 
+import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -13,8 +14,10 @@ import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 @Data
+@ToString
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
@@ -23,11 +26,12 @@ public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Schema(hidden = true)
     private Long id;
 
     @NotBlank
-    @Column(unique =true, nullable = false)
-    private String userName;
+    @Column(unique = true, nullable = false, name = "username")
+    private String username;
 
     @NotBlank
     @Column(nullable = false)
@@ -37,22 +41,22 @@ public class User {
     @JoinColumn(name = "role_id", nullable = false)
     private Role role;
 
-    
-    public User(String userName, String password, Role role) {
-        this.userName = userName;
+    public User(String username, String password, Role role) {
+        this.username = username;
         this.password = password;
         this.role = role;
     }
-    
-    
-    /*String lastName;
-    String firstName;
-    String email;
-    String password;
-    String phoneNumber;
-    String licenseNumber;
-    String agency;
-    List<Property> assignedProperties;
-    Roles rol;*/
+
+    /*
+     * String lastName;
+     * String firstName;
+     * String email;
+     * String password;
+     * String phoneNumber;
+     * String licenseNumber;
+     * String agency;
+     * List<Property> assignedProperties;
+     * Roles rol;
+     */
 
 }

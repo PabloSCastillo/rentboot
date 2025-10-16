@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -18,6 +19,7 @@ import jakarta.validation.Valid;
 
 @RestController
 @RequestMapping("api/v1/auth")
+@CrossOrigin(origins = "*")
 public class AuthController {
 
     private final AuthService authService;
@@ -33,7 +35,7 @@ public class AuthController {
             return ResponseEntity.badRequest().body("Revise sus credenciales");
         }
         try {
-            String jwt = authService.authenticate(loginUserDto.getUserName(), loginUserDto.getPassword());
+            String jwt = authService.authenticate(loginUserDto.getUsername(), loginUserDto.getPassword());
             return ResponseEntity.ok(jwt);
         } catch (Exception e){
             return ResponseEntity.badRequest().body(e.getMessage());

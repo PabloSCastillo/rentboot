@@ -42,13 +42,13 @@ public class AuthService {
     }
 
     public void registerUser(NewUserDto newUserDto) {
-        if (userService.existsByUserName(newUserDto.getUserName())) {
+        if (userService.existsByUserName(newUserDto.getUserame())) {
             throw new IllegalArgumentException("Username does already exist");
         }
 
         Role roleUser = roleRepository.findByName(Roles.USER)
                 .orElseThrow(() -> new RuntimeException("Role not found: " + Roles.USER));
-        User user = new User(newUserDto.getUserName(), passwordEncoder.encode(newUserDto.getPassword()), roleUser);
+        User user = new User(newUserDto.getUserame(), passwordEncoder.encode(newUserDto.getPassword()), roleUser);
         userService.save(user);
     }
 }

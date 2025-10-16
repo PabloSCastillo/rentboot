@@ -6,6 +6,7 @@ import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
+import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.persistence.Column;
 import jakarta.persistence.Embedded;
 import jakarta.persistence.Entity;
@@ -26,14 +27,14 @@ import lombok.NoArgsConstructor;
 @Table(name = "properties")
 
 public class Property {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Schema(hidden = true)
 	Long id;
-	
-	@Column(name = "description")
+
 	String description;
-	
+
 	@Column(name = "type")
 	String type;
 
@@ -45,12 +46,14 @@ public class Property {
 	String latitude;
 	String longitude;
 	boolean available;
-	
+
 	@CreatedDate
+	@Schema(hidden = true)
 	@Column(updatable = false)
 	private LocalDateTime createdAt;
-	
+
 	@LastModifiedDate
+	@Schema(hidden = true)
 	private LocalDateTime updatedAt;
 
 }
