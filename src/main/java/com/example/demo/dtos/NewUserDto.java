@@ -13,10 +13,10 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class NewUserDto {
+
     @Column(name = "username")
     private String userame;
     private String password;
     private Role rol = new Role() ;
-
     
 }
